@@ -1,0 +1,112 @@
+@import url("https://fonts.cdnfonts.com/css/euclid-circular-a");
+
+ :root{
+    --body-bg:   #d6d6d6d1;
+    --body-color: #555;
+    --link-color: #222;
+    --link-color-hover: #003d5b;
+}
+
+.dark-mode:root{
+    --body-bg:   #212529;
+    --body-color: #818bbc;
+    --link-color: #adadad;
+    --link-color-hover: #3cc368;
+    --link-color-botao: #000000;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Euclid Circular A", sans-serif;
+    padding-left: 20px;
+
+    background-color: var(--body-bg);
+    color: var(--body-color) ;
+}
+
+#meuElemento{
+    text-align: center;
+    width:  50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a{
+    color: var(--link-color);
+}
+a:hover{
+    color: var(--link-color-hover);
+}
+
+
+#labelDarkMode{
+    display: inline-block;
+}
+
+#trocarBotao{
+    color: var(--body-color);
+    font-family: 'Euclid Circular A';
+    font-size: 16px;
+    background-color: var(--link-color-botao);
+    cursor: pointer;
+    /*border: groove;*/
+    border: outset ;
+    border-color: var(--link-color-botao);
+    transition: transform 0.5s ease;
+}
+
+#trocarBotao:hover{
+    color: var(--link-color-hover);
+    transform: scale(1.2);
+}
+
+#labelDarkMode{
+    color: var(--body-color);
+    cursor: pointer;
+    
+}
+#labelDarkMode:hover{
+    color: var(--link-color-hover);
+}
+#switch{
+    display: none;
+}
+#ulCheckbox{
+    list-style:none;
+    position: fixed;
+    right: 0;
+    margin-top: -60px;
+    margin-right: 40px ;
+}
+li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#textoSimples{
+    font-size: 1.1em;
+}
+
+#icon{
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+.beat-fade {
+    animation: beat-fade 0.5s;
+  }
+
+  @keyframes beat-fade {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
