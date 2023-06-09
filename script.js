@@ -1,41 +1,78 @@
-<!doctype html>
-<html lang="pt-br">
-    <head>
-        <title>teste dark-mode</title>
-        <meta charset="utf-8">
-        <meta name="author" content="Lucas">
-        <meta name="description" content="descrição bacanuda">
-        <meta name="keywords" content="JavaScript">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-        
-    </head>
-    
-    <body class="bodyAnima">
-        <div class="animacaoInit">
-        <h1 id="meuElemento">Modo-Escuro</h1>
-        </div>
+const $html = document.querySelector('html')
+const $checkbox = document.querySelector('#switch')
+//trocar classe do html
+$checkbox.addEventListener('change', function(){
+    $html.classList.toggle('dark-mode')
+})
 
-        <div class="hide">
-            <ul id="ulCheckbox">
-                <li> <button id="trocarBotao">Trocar linguagem</button> </li>
-                <li> <label for="switch">
-                    <input type="checkbox" id="switch"> <i class="fas fa-lightbulb" id="icon"></i><P id="labelDarkMode">Modo-escuro</P>
-                </label> </li>
-            </ul>
 
-        <div id="textoSimplesDiv">
-        <p id="textoSimples">Este é um teste de <a href="https://www.google.com/search?q=dark-mode&rlz=1C1GCEU_pt-BRBR1044BR1044&oq=dark-mode&aqs=chrome..69i57j0i19i512l4j69i60j69i61l2.3712j0j7&sourceid=chrome&ie=UTF-8" target="_blank">modo-escuro</a></p>
-        </div>
-        
-        </div>
-        
-        <script src="script.js"> 
 
-        </script>
 
-    </body>
-</html>
+const $elemento = document.querySelector('#meuElemento');
+const $conteudoOriginal = $elemento.innerHTML;
+
+const $botao = document.querySelector('#trocarBotao');
+const $conteudoOriginalBt = $botao.innerHTML;
+
+const $textoSimples = document.querySelector("#textoSimples");
+const $textoSimplesOri = $textoSimples.innerHTML;
+
+const $labeldarkmode = document.querySelector("#labelDarkMode");
+const $labeldarkmodeOri = $labeldarkmode.innerHTML;
+
+function alterarConteudo(elemento, conteudo) {
+  elemento.innerHTML = conteudo;
+}
+//alterar linguagem via click no botao
+$botao.addEventListener('click', function() {
+  if ($elemento.innerHTML === $conteudoOriginal && $botao.innerHTML === $conteudoOriginalBt && $textoSimples.innerHTML === $textoSimplesOri) {
+    alterarConteudo($elemento, 'Dark-Mode');
+    alterarConteudo($botao, 'exchange language');
+    alterarConteudo($textoSimples, 'this is a '+' <a href="https://www.google.com/search?q=dark-mode&rlz=1C1GCEU_pt-BRBR1044BR1044&oq=dark-mode&aqs=chrome..69i57j0i19i512l4j69i60j69i61l2.3712j0j7&sourceid=chrome&ie=UTF-8">dark-mode</a>' + ' test');
+    alterarConteudo($labeldarkmode, 'Dark-mode');
+  } else {
+    alterarConteudo($elemento, $conteudoOriginal);
+    alterarConteudo($botao, $conteudoOriginalBt);
+    alterarConteudo($textoSimples, $textoSimplesOri);
+    alterarConteudo($labeldarkmode, $labeldarkmodeOri);
+  }
+});
+
+
+
+
+
+var $icon = document.getElementById('icon');
+var $labelDarkMode = document.getElementById('labelDarkMode')
+// Remova a classe 'beat-fade' após a duração da animação clicando na lampada
+function removeBeatFadeClass() {
+  $icon.classList.remove('beat-fade');
+}
+$icon.addEventListener('click', function() {
+  $icon.classList.add('beat-fade');
+
+  setTimeout(removeBeatFadeClass, 500);
+});
+// Remova a classe 'beat-fade' após a duração da animação clicando no texto
+$labelDarkMode.addEventListener('click', function() {
+  $icon.classList.add('beat-fade');
+
+  setTimeout(removeBeatFadeClass, 500);
+});
+
+
+
+
+
+var $elementoAnima = document.querySelector('.animacaoInit');
+var $elementosEscondidos = document.getElementsByClassName('hide');
+//altera a classe hide. alterando a opacidade depois que animacao do $elementoAnima terminar.
+$elementoAnima.addEventListener('animationend', function() {
+    $elementosEscondidos[0].style.opacity = 1;
+});
+
+//adiciona uma classe ao css para fazer funcionar caso esteja sem javascript
+document.body.classList.add('js-enabled');
+
+
+
