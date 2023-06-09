@@ -5,17 +5,17 @@
     --body-color: #555;
     --link-color: #222;
     --link-color-hover: #003d5b;
-    --color-lamp: #a0a079;
+    --color-lamp: #aca879;
     --color-animada: #3a3a3a;
 }
 
 .dark-mode:root{
     --body-bg:   #212529;
-    --body-color: #818bbc;
-    --link-color: #adadad;
-    --link-color-hover: #3cc368;
+    --body-color: #cecece;
+    --link-color: #cecece;
+    --link-color-hover: #ffffff;
     --link-color-botao: #000000;
-    --color-lamp: #4f5679;
+    --color-lamp: #616268;
     --color-animada: #f2f7b6;
     --filter-lampada: blur(1px) ;
 }
@@ -84,6 +84,7 @@ li{
 
 #textoSimples{
     font-size: 1.1em;
+    margin-left: 30px;
 }
 
 #icon{
@@ -164,7 +165,7 @@ li{
       margin-top: 0px;
     }
     100% {
-      font-size: 34px;
+      font-size: 40px;
       opacity: 1;
       margin-top: -300px;
     }
@@ -191,7 +192,10 @@ li{
  }
  
  .hide {
-  opacity: 0;
-  transition: opacity 0.2s;
+  opacity: 1;
+  transition: opacity 1s;
 }
  
+body.js-enabled .hide {
+  opacity: 0;
+}
