@@ -1,78 +1,247 @@
-const $html = document.querySelector('html')
-const $checkbox = document.querySelector('#switch')
-//trocar classe do html
-$checkbox.addEventListener('change', function(){
-    $html.classList.toggle('dark-mode')
-})
+@import url("https://fonts.cdnfonts.com/css/euclid-circular-a");
 
-
-
-
-const $elemento = document.querySelector('#meuElemento');
-const $conteudoOriginal = $elemento.innerHTML;
-
-const $botao = document.querySelector('#trocarBotao');
-const $conteudoOriginalBt = $botao.innerHTML;
-
-const $textoSimples = document.querySelector("#textoSimples");
-const $textoSimplesOri = $textoSimples.innerHTML;
-
-const $labeldarkmode = document.querySelector("#labelDarkMode");
-const $labeldarkmodeOri = $labeldarkmode.innerHTML;
-
-function alterarConteudo(elemento, conteudo) {
-  elemento.innerHTML = conteudo;
+ :root{
+    --body-bg:   #d6d6d6d1;
+    --body-color: #555;
+    --link-color: #222;
+    --link-color-hover: #003d5b;
+    --color-lamp: #aca879;
+    --color-animada: #3a3a3a;
 }
-//alterar linguagem via click no botao
-$botao.addEventListener('click', function() {
-  if ($elemento.innerHTML === $conteudoOriginal && $botao.innerHTML === $conteudoOriginalBt && $textoSimples.innerHTML === $textoSimplesOri) {
-    alterarConteudo($elemento, 'Dark-Mode');
-    alterarConteudo($botao, 'exchange language');
-    alterarConteudo($textoSimples, 'this is a '+' <a href="https://www.google.com/search?q=dark-mode&rlz=1C1GCEU_pt-BRBR1044BR1044&oq=dark-mode&aqs=chrome..69i57j0i19i512l4j69i60j69i61l2.3712j0j7&sourceid=chrome&ie=UTF-8">dark-mode</a>' + ' test');
-    alterarConteudo($labeldarkmode, 'Dark-mode');
-  } else {
-    alterarConteudo($elemento, $conteudoOriginal);
-    alterarConteudo($botao, $conteudoOriginalBt);
-    alterarConteudo($textoSimples, $textoSimplesOri);
-    alterarConteudo($labeldarkmode, $labeldarkmodeOri);
+
+.dark-mode:root{
+    --body-bg:   #212529;
+    --body-color: #cecece;
+    --link-color: #cecece;
+    --link-color-hover: #ffffff;
+    --link-color-botao: #000000;
+    --color-lamp: #616268;
+    --color-animada: #f2f7b6;
+    --filter-lampada: blur(1px) ;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Euclid Circular A", sans-serif;
+    padding-left: 20px;
+
+    background-color: var(--body-bg);
+    color: var(--body-color) ;
+}
+
+a{
+    color: var(--link-color);
+}
+a:hover{
+    color: var(--link-color-hover);
+}
+
+
+#labelDarkMode{
+    display: inline-block;
+}
+
+#trocarBotao{
+    color: var(--body-color);
+    font-family: 'Euclid Circular A';
+    font-size: 16px;
+    background-color: var(--link-color-botao);
+    cursor: pointer;
+    /*border: groove;*/
+    border: outset ;
+    border-color: var(--link-color-botao);
+    transition: transform 0.5s ease;
+}
+
+#trocarBotao:hover{
+    color: var(--link-color-hover);
+    transform: scale(1.2);
+}
+
+#labelDarkMode{
+    color: var(--body-color);
+    cursor: pointer;
+    
+}
+#labelDarkMode:hover{
+    color: var(--link-color-hover);
+}
+#switch{
+    display: none;
+}
+#ulCheckbox{
+    list-style:none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-top: 10px;
+    margin-right: 10px ;
+}
+li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#textoSimples{
+    font-size: 1.1em;
+    margin-left: 30px;
+}
+
+#icon{
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 1.2em;
+    color: var(--color-lamp);
+}
+#icon:hover{
+    animation: balance 1s infinite;
+}
+.beat-fade {
+    animation: beat-fade 0.5s;
   }
-});
 
+  @keyframes beat-fade {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 
+  @keyframes balance {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(-20deg);
+    }
+    50%{ 
+        transform: rotate(0deg);
+        color: var(--color-animada);
+        filter: var(--filter-lampada)
+    }
+    75%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+  }
 
+  .animacaoInit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 250px;
+  }
+  #meuElemento{
+    animation: shrink 2.8s forwards;
+  }
+  @keyframes shrink {
+    0% {
+      font-size: 80px;
+      opacity: 0;
+    }
+    25% {
+      font-size: 80px;
+      opacity: 0;
+    }
+    50% {
+      font-size: 80px;
+      opacity: 0.5;
+    }
 
-
-var $icon = document.getElementById('icon');
-var $labelDarkMode = document.getElementById('labelDarkMode')
-// Remova a classe 'beat-fade' após a duração da animação clicando na lampada
-function removeBeatFadeClass() {
-  $icon.classList.remove('beat-fade');
+    75% {
+      font-size: 80px;
+      opacity: 1;
+      margin-top: 0px;
+    }
+    100% {
+      font-size: 40px;
+      opacity: 1;
+      margin-top: -300px;
+    }
+  }
+ .bodyAnima{
+    animation: bodyanima 2.3s forwards;
+ }
+ @keyframes bodyanima {
+    0% {
+        background-color:#212529;
+        color: #ffffff;
+      }
+      50% {
+        background-color: #212529;
+        color: #ffffff;
+      }
+  
+      75% {
+        
+      }
+      100% {
+        
+      }
+ }
+ 
+ .hide {
+  opacity: 1;
+  transition: opacity 1s;
 }
-$icon.addEventListener('click', function() {
-  $icon.classList.add('beat-fade');
-
-  setTimeout(removeBeatFadeClass, 500);
-});
-// Remova a classe 'beat-fade' após a duração da animação clicando no texto
-$labelDarkMode.addEventListener('click', function() {
-  $icon.classList.add('beat-fade');
-
-  setTimeout(removeBeatFadeClass, 500);
-});
+ 
+body.js-enabled .hide {
+  opacity: 0;
+}
 
 
 
+/* no celular */
+@media screen and (max-width: 412px) and (max-height: 915px){
+  #meuElemento{
+    animation: shrink 2.8s forwards;
+  }
+  @keyframes shrink {
+    0% {
+      font-size: 80px;
+      opacity: 0;
+    }
+    25% {
+      font-size: 80px;
+      opacity: 0;
+    }
+    50% {
+      font-size: 80px;
+      opacity: 0.5;
+    }
 
+    75% {
+      font-size: 80px;
+      opacity: 1;
+      margin-top: 0px;
+    }
+    100% {
+      font-size: 45px;
+      opacity: 1;
+      margin-top: -320px;
+    }
+  }
+  #textoSimplesDiv {
+    text-align: center;
+    margin-right: 40px;
+  }
 
-var $elementoAnima = document.querySelector('.animacaoInit');
-var $elementosEscondidos = document.getElementsByClassName('hide');
-//altera a classe hide. alterando a opacidade depois que animacao do $elementoAnima terminar.
-$elementoAnima.addEventListener('animationend', function() {
-    $elementosEscondidos[0].style.opacity = 1;
-});
+#ulCheckbox{
+  margin-top: 120px;
+}
+#ulCheckbox li {
+  display: block;
+}
 
-//adiciona uma classe ao css para fazer funcionar caso esteja sem javascript
-document.body.classList.add('js-enabled');
-
-
-
+}
