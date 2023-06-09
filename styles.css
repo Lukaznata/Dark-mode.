@@ -199,3 +199,49 @@ li{
 body.js-enabled .hide {
   opacity: 0;
 }
+
+
+
+/* no celular */
+@media screen and (max-width: 412px) and (max-height: 915px){
+  #meuElemento{
+    animation: shrink 2.8s forwards;
+  }
+  @keyframes shrink {
+    0% {
+      font-size: 80px;
+      opacity: 0;
+    }
+    25% {
+      font-size: 80px;
+      opacity: 0;
+    }
+    50% {
+      font-size: 80px;
+      opacity: 0.5;
+    }
+
+    75% {
+      font-size: 80px;
+      opacity: 1;
+      margin-top: 0px;
+    }
+    100% {
+      font-size: 45px;
+      opacity: 1;
+      margin-top: -320px;
+    }
+  }
+  #textoSimplesDiv {
+    text-align: center;
+    margin-right: 40px;
+  }
+
+#ulCheckbox{
+  margin-top: 120px;
+}
+#ulCheckbox li {
+  display: block;
+}
+
+}
