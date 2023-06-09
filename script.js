@@ -1,9 +1,10 @@
 const $html = document.querySelector('html')
 const $checkbox = document.querySelector('#switch')
-
+//trocar classe do html
 $checkbox.addEventListener('change', function(){
     $html.classList.toggle('dark-mode')
 })
+
 
 
 
@@ -22,7 +23,7 @@ const $labeldarkmodeOri = $labeldarkmode.innerHTML;
 function alterarConteudo(elemento, conteudo) {
   elemento.innerHTML = conteudo;
 }
-
+//alterar linguagem via click no botao
 $botao.addEventListener('click', function() {
   if ($elemento.innerHTML === $conteudoOriginal && $botao.innerHTML === $conteudoOriginalBt && $textoSimples.innerHTML === $textoSimplesOri) {
     alterarConteudo($elemento, 'Dark-Mode');
@@ -37,37 +38,41 @@ $botao.addEventListener('click', function() {
   }
 });
 
+
+
+
+
 var $icon = document.getElementById('icon');
 var $labelDarkMode = document.getElementById('labelDarkMode')
-
+// Remova a classe 'beat-fade' após a duração da animação clicando na lampada
 function removeBeatFadeClass() {
   $icon.classList.remove('beat-fade');
 }
-
 $icon.addEventListener('click', function() {
   $icon.classList.add('beat-fade');
 
-  // Remova a classe 'beat-fade' após a duração da animação
   setTimeout(removeBeatFadeClass, 500);
 });
-
+// Remova a classe 'beat-fade' após a duração da animação clicando no texto
 $labelDarkMode.addEventListener('click', function() {
   $icon.classList.add('beat-fade');
 
-  // Remova a classe 'beat-fade' após a duração da animação
   setTimeout(removeBeatFadeClass, 500);
 });
+
+
 
 
 
 var $elementoAnima = document.querySelector('.animacaoInit');
 var $elementosEscondidos = document.getElementsByClassName('hide');
-
+//altera a classe hide. alterando a opacidade depois que animacao do $elementoAnima terminar.
 $elementoAnima.addEventListener('animationend', function() {
     $elementosEscondidos[0].style.opacity = 1;
 });
 
-
+//adiciona uma classe ao css para fazer funcionar caso esteja sem javascript
+document.body.classList.add('js-enabled');
 
 
 
