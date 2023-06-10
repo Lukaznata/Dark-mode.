@@ -18,6 +18,7 @@
     --color-lamp: #616268;
     --color-animada: #f2f7b6;
     --filter-lampada: blur(1px) ;
+    --hover-title: white;
 }
 
 body {
@@ -145,6 +146,11 @@ li{
   #meuElemento{
     animation: shrink 2.8s forwards;
   }
+  #meuElemento:hover{
+    color: var(--hover-title);
+    cursor: pointer;
+  }
+
   @keyframes shrink {
     0% {
       font-size: 80px;
@@ -203,7 +209,7 @@ body.js-enabled .hide {
 
 
 /* no celular */
-@media screen and (max-width: 412px) and (max-height: 915px){
+@media screen and (max-width: 600px) and (max-height: 950px){
   #meuElemento{
     animation: shrink 2.8s forwards;
   }
@@ -232,9 +238,9 @@ body.js-enabled .hide {
       margin-top: -320px;
     }
   }
-  #textoSimplesDiv {
+  #textoSimples{
+    margin: auto;
     text-align: center;
-    margin-right: 40px;
   }
 
 #ulCheckbox{
