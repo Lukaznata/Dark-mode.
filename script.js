@@ -75,7 +75,7 @@ $elementoAnima.addEventListener('animationend', function() {
 document.body.classList.add('js-enabled');
 
 // Verifica se o dispositivo tem preferência por cores claras
-const prefersLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+const prefersLightMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 // Se o modo claro for preferido, adiciona a classe "light-mode" ao elemento <html>
 if (prefersLightMode) {
