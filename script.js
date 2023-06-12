@@ -74,13 +74,10 @@ $elementoAnima.addEventListener('animationend', function() {
 //adiciona uma classe ao html para fazer funcionar caso esteja sem javascript
 document.body.classList.add('js-enabled');
 
-
-
-
 // Verifica se o dispositivo tem preferência por cores claras
-const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const prefersLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-// Se o modo dark for preferido, adiciona a classe "dark-mode" ao elemento <html>
+// Se o modo claro for preferido, adiciona a classe "light-mode" ao elemento <html>
 if (prefersLightMode) {
   document.documentElement.classList.add('light-mode');
 }
