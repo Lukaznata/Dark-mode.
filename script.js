@@ -76,3 +76,13 @@ document.body.classList.add('js-enabled');
 
 
 
+
+// Verifica se o dispositivo tem preferência por cores claras
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Se o modo dark for preferido, adiciona a classe "dark-mode" ao elemento <html>
+if (prefersLightMode) {
+  document.documentElement.classList.add('light-mode');
+}
+
+
