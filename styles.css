@@ -225,6 +225,7 @@ body.js-enabled .hide {
 
   #meuElemento{
     animation: shrink 2.8s forwards;
+    text-align: center;
   }
   @keyframes shrink {
     0% {
