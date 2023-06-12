@@ -12,7 +12,15 @@ html {
     --color-lamp: #aca879;
     --color-animada: #3a3a3a;
     --hover-title: #333333;
-
+}
+.light-mode:root{
+    --body-bg:   #d6d6d6d1;
+    --body-color: #555;
+    --link-color: #222;
+    --link-color-hover: #003d5b;
+    --color-lamp: #aca879;
+    --color-animada: #3a3a3a;
+    --hover-title: #333333;
 }
 
 .dark-mode:root{
