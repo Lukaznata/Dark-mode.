@@ -71,7 +71,7 @@ $elementoAnima.addEventListener('animationend', function() {
     $elementosEscondidos[0].style.opacity = 1;
 });
 
-//adiciona uma classe ao css para fazer funcionar caso esteja sem javascript
+//adiciona uma classe ao html para fazer funcionar caso esteja sem javascript
 document.body.classList.add('js-enabled');
 
 
