@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="styles.css">
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
         
     </head>
     
@@ -21,14 +22,50 @@
 
         <div class="hide">
             <ul id="ulCheckbox">
-                <li> <button id="trocarBotao">Trocar linguagem</button> </li>
+                <li> <button id="trocarBotao" tabindex="1">translate</button> </li>
                 <li> <label for="switch">
-                    <input type="checkbox" id="switch"> <i class="fas fa-lightbulb" id="icon"></i><P id="labelDarkMode">Modo-escuro</P>
+                    <input type="checkbox" id="switch"> <i class="fas fa-lightbulb" id="icon"></i><P id="labelDarkMode" tabindex="0">Modo-escuro</P>
                 </label> </li>
             </ul>
 
-        <div>
-        <p id="textoSimples">Este é um teste de <a href="https://www.google.com/search?q=dark-mode&rlz=1C1GCEU_pt-BRBR1044BR1044&oq=dark-mode&aqs=chrome..69i57j0i19i512l4j69i60j69i61l2.3712j0j7&sourceid=chrome&ie=UTF-8" target="_blank">modo-escuro</a></p>
+        <div id="menuOculto">
+            <ul id="menu">
+             <p>Menu</p>
+             <li><a href="#">Início</a></li>
+             <li><a href="#">Benefícios</a></li>
+             <li><a href="#">Bateria</a></li>
+            <li><a href="#">Saúde</a></li>
+            </ul>
+        </div>
+    
+                
+            
+
+        <div id="textoSimples">
+        <h2>O modo noturno, também conhecido como "<a href="https://www.ecycle.com.br/dark-mode/" target="_blank">dark-mode</a>", é uma nova tecnologia que se tornou tendência em aplicativos e sistemas operacionais do Google e da Apple.</h2>
+        
+        <div id="textoSimplesParagrafos">
+
+        <p>Disponível em alguns serviços para dispositivos Android e iPhone (iOS), a função busca reduzir o impacto da iluminação da interface gráfica de aparelhos e altera, de forma temporária, as cores na tela.</p>
+        
+        <p>Os softwares passam a ser executados em tons escuros, a fim de oferecer um uso mais confortável ao usuário, principalmente, em ambientes pouco iluminados.</p>
+        </div>
+
+        <div id="beneficios">
+            <h3>BENEFÍCIOS</h3>
+            <h4>BATERIA</h4>    
+            <p>Um estudo da “AppleInsider” conclui que a utilização deste método reduz significativamente o consumo de energia nos visores OLED. Inclusive, é possível poupar “até 60% do nível de bateria” em três horas de utilização intensiva num iPhone X.</p>
+    
+            <p>A Google também confirma esta melhoria de desempenho nos dispositivos Android que utilizam regularmente esta alternativa. De acordo com um artigo do “Slash Gear”, “o famoso modo escuro pode fazer uma grande diferença na quantidade de energia necessária para todas as aplicações no Android”.
+            </p>
+    
+            <h4>SAÚDE</h4>
+            <p>“As cores quentes do modo noturno não confundem o organismo em termos de tempo cronológico e tornam mais fácil adormecer do que se estivéssemos a olhar para um dispositivo com o ecrã no modo normal”, conclui o médico.</p>
+    
+            <p> Um relatório da Academia Americana de Oftalmologia (AAO) destaca a redução das emissões de luz azul que acompanha o modo escuro. “Apesar de não causar danos à visão, a diminuição da exposição à luz azul e a limitação do tempo e do brilho do ecrã pode ajudar as pessoas a dormirem melhor e a sentirem-se mais confortáveis”.</p>
+        </div>
+        
+        
         </div>
         
         </div>
