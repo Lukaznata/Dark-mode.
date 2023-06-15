@@ -1,31 +1,31 @@
 @import url("https://fonts.cdnfonts.com/css/euclid-circular-a");
+html,
+body {
+  scroll-behavior: smooth;
+}
 html {
   touch-action: pan-x pan-y;
   -ms-content-zooming: none;
   -ms-touch-action: pan-x pan-y;
 }
- :root{
-    --body-bg:   #d6d6d6d1;
-    --body-color: #555;
-    --link-color: #222;
-    --link-color-hover: #003d5b;
-    --color-lamp: #aca879;
-    --color-animada: #3a3a3a;
-    --hover-title: #333333;
-}
+
 .light-mode:root{
-    --body-bg:   #d6d6d6d1;
-    --body-color: #555;
-    --link-color: #222;
-    --link-color-hover: #003d5b;
-    --color-lamp: #aca879;
-    --color-animada: #3a3a3a;
-    --hover-title: #333333;
+  --body-bg:   #d6d6d6d1;
+  --body-color: #555;
+  --title-color: #333333;
+  --link-color: #222;
+  --link-color-hover: #003d5b;
+  --color-lamp: #aca879;
+  --color-animada: #3a3a3a;
+  --hover-title: #000000;
+  --color-backgroundMenu-hover: #7979795b;
+  --color-p-menu-hover:rgb(60, 60, 60);
 }
 
 .dark-mode:root{
     --body-bg:   #212529;
     --body-color: #cecece;
+    --title-color: #cecece;;
     --link-color: #cecece;
     --link-color-hover: #ffffff;
     --link-color-botao: #000000;
@@ -33,16 +33,26 @@ html {
     --color-animada: #f2f7b6;
     --filter-lampada: blur(1px) ;
     --hover-title: white;
+    --color-backgroundMenu-hover: #7979795b;
+    --color-p-menu-hover:white;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "Euclid Circular A", sans-serif;
     padding-left: 20px;
-
     background-color: var(--body-bg);
     color: var(--body-color) ;
 }
+
+
+
+
+
+
+
 
 a{
     color: var(--link-color);
@@ -74,31 +84,130 @@ a:hover{
 #labelDarkMode{
     color: var(--body-color);
     cursor: pointer;
+    transition: ease-in-out 0.1s;
     
 }
 #labelDarkMode:hover{
     color: var(--link-color-hover);
+    font-weight: bold;
 }
 #switch{
     display: none;
 }
 #ulCheckbox{
-    list-style:none;
-    position: fixed;
-    right: 0;
+    list-style: none;
+    position: absolute;
+    left: 0;
     top: 0;
-    margin-top: 10px;
-    margin-right: 10px ;
+    margin-top: 30px;
+    margin-left: 20px ;
 }
-li{
+#ulCheckbox li{
     display: inline-block;
     margin-right: 20px;
 }
 
-#textoSimples{
-    font-size: 1.1em;
-    margin-left: 30px;
+
+
+
+
+#menuOculto {
+  position: fixed;
+  top: 0;
+  right: -155px; /* Esconde o menu fora da tela */
+  width: 230px;
+  height: 100vh;
+  transition: right 0.3s ease-in-out;
+  transition: ease-in-out 0.3s;
 }
+#menuOculto.active {
+  right: 0px; /* Mostra o menu quando a classe 'active' é adicionada */
+  transition: ease-in-out 0.3s;
+  background-color: var(--color-backgroundMenu-hover);
+}
+#menuOculto.active p{
+  margin-right: 0px;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: var(--color-p-menu-hover);
+}
+
+#menu {
+  margin-top: 35px; /* Espaço para a alça do menu */
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+#menu p{
+  font-size: 1.4em;
+  margin-right: 170px;
+  transition: ease-in-out 0.3s;
+  font-family: "Euclid Circular A", sans-serif;
+  user-select: none;
+}
+
+#menu li {
+  display: block;
+  margin-top: 30px;
+  height: 25px;
+}
+
+#menu li a {
+  text-decoration: none;
+  border: none;
+  transition: ease-in-out 0.1s;
+}
+
+#menu li a:hover{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+
+
+
+
+#textoSimples{
+    font-size: 1.2em;
+    margin-left: 30px;
+    
+}
+#textoSimples h2{
+  font-size: 2.4em;
+  max-width: 80vw;
+  font-family: "Calisto-MT";
+}
+
+
+#textoSimplesParagrafos{
+  max-width: 50vh; /* Define a altura máxima como metade da altura da janela do navegador */
+}
+
+#beneficios{
+  background-color: #a3a3a3;
+  margin-right: 30px;
+  border-radius: 5%;
+  max-width: 50vw;
+  text-align: center;
+  margin: auto;
+}
+#beneficios h3{
+  font-family: "Calisto-MT";
+  font-size: 2.5em;
+}
+#beneficios h4{
+  margin-bottom: -20px;
+  font-size: 1.2em;
+}
+#beneficios p{
+  font-size: 1.2em;
+}
+
+
+
+
+
 
 #icon{
     cursor: pointer;
@@ -148,6 +257,11 @@ li{
     }
   }
 
+
+
+
+
+
   .animacaoInit{
     display: flex;
     flex-direction: column;
@@ -158,33 +272,37 @@ li{
   
   #meuElemento{
     animation: shrink 2.8s forwards;
+    color: var(--title-color);
+    user-select: none;
+    
   }
   #meuElemento:hover{
-    color: var(--hover-title);
-    cursor: pointer;
+    color: var(--hover-title); 
   }
 
   @keyframes shrink {
     0% {
-      font-size: 80px;
+      font-size: 120px;
       opacity: 0;
     }
     25% {
-      font-size: 80px;
+      font-size: 120px;
       opacity: 0;
     }
     50% {
-      font-size: 80px;
+      font-size: 120px;
       opacity: 0.5;
+      color:white;
     }
 
     75% {
-      font-size: 80px;
+      font-size: 120px;
       opacity: 1;
       margin-top: 0px;
+      color: #333333;
     }
     100% {
-      font-size: 40px;
+      font-size: 60px;
       opacity: 1;
       margin-top: -300px;
     }
@@ -219,13 +337,25 @@ body.js-enabled .hide {
   opacity: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* no celular */
 @media screen and (max-width: 600px) and (max-height: 950px){
 
 
   #meuElemento{
     animation: shrink 2.8s forwards;
-    text-align: center;
   }
   @keyframes shrink {
     0% {
@@ -255,6 +385,8 @@ body.js-enabled .hide {
   #textoSimples{
     margin: auto;
     text-align: center;
+    margin-top: 170px;
+    
   }
 
 #ulCheckbox{
