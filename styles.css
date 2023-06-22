@@ -8,51 +8,54 @@ html {
   -ms-content-zooming: none;
   -ms-touch-action: pan-x pan-y;
 }
-
 .light-mode:root{
-  --body-bg:   #d6d6d6d1;
+  --body-bg: #ebebeb;
   --body-color: #555;
   --title-color: #333333;
+  --hover-title: #000000;
   --link-color: #222;
   --link-color-hover: #003d5b;
   --color-lamp: #aca879;
   --color-animada: #3a3a3a;
-  --hover-title: #000000;
-  --color-backgroundMenu-hover: #7979795b;
+  --color-backgroundMenu-hover: linear-gradient(to right, #e3e3e3, #bbbbbb);
   --color-p-menu-hover:rgb(60, 60, 60);
+  --txth2-color: rgb(41, 41, 41);
+  --background-card: rgb(199, 199, 199);
+  --shadow-card: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+  --color-h3: rgb(60, 60, 60);
+  --color-h4: rgb(54, 54, 54);
+  --text-shadow-h4: 1px 1px 2px rgba(0, 0, 0, 1);
 }
 
 .dark-mode:root{
-    --body-bg:   #212529;
-    --body-color: #cecece;
-    --title-color: #cecece;;
+    --body-bg: linear-gradient(to right, #00011e, #00011e, #191a49, #2a2b58);
+    --body-color: rgb(177, 177, 177);
+    --title-color: #e0e0e0;;
+    --hover-title: rgb(225, 225, 225);
     --link-color: #cecece;
     --link-color-hover: #ffffff;
     --link-color-botao: #000000;
     --color-lamp: #616268;
     --color-animada: #f2f7b6;
     --filter-lampada: blur(1px) ;
-    --hover-title: white;
-    --color-backgroundMenu-hover: #7979795b;
+    --color-backgroundMenu-hover:  linear-gradient(to right, #0d0d0d, rgb(28, 37, 47));
     --color-p-menu-hover:white;
+    --txth2-color: white;
+    --background-card: rgb(24, 30, 36);
+    --color-h3: white;
+    --color-h4: rgb(209, 209, 209);
+    --text-shadow-h4: 2px 2px 4px rgba(0, 30, 255, 0.5);
 }
-
+/* */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Euclid Circular A", sans-serif;
-    padding-left: 20px;
-    background-color: var(--body-bg);
-    color: var(--body-color) ;
+    background: var(--body-bg);
+    color: var(--body-color) ; 
+
 }
-
-
-
-
-
-
-
 
 a{
     color: var(--link-color);
@@ -60,57 +63,60 @@ a{
 a:hover{
     color: var(--link-color-hover);
 }
-
-#labelDarkMode{
-    display: inline-block;
-}
-
-#trocarBotao{
-    color: var(--body-color);
-    font-family: 'Euclid Circular A';
-    font-size: 16px;
-    background-color: var(--link-color-botao);
-    cursor: pointer;
-    /*border: groove;*/
-    border: outset ;
-    border-color: var(--link-color-botao);
-    transition: transform 0.5s ease;
-}
-
-#trocarBotao:hover{
-    color: var(--link-color-hover);
-    transform: scale(1.2);
-}
-#labelDarkMode{
-    color: var(--body-color);
-    cursor: pointer;
-    transition: ease-in-out 0.1s;
-    
-}
-#labelDarkMode:hover{
-    color: var(--link-color-hover);
-    font-weight: bold;
-}
-#switch{
-    display: none;
-}
+/* Menu */
 #ulCheckbox{
     list-style: none;
     position: absolute;
     left: 0;
     top: 0;
     margin-top: 30px;
-    margin-left: 20px ;
+    margin-left: 20px;
+    height: 0;
 }
 #ulCheckbox li{
     display: inline-block;
     margin-right: 20px;
+    vertical-align: middle;
+}
+
+#ulCheckbox .us-flag{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url(https://flagsapi.com/US/flat/64.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+#ulCheckbox .br-flag{
+  content:'';
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url(https://flagsapi.com/BR/flat/64.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
 }
 
 
 
 
+#switch{
+  display: none;
+}
+#labelDarkMode{
+  display: inline-block;
+  color: var(--body-color);
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+}
+#labelDarkMode:hover{
+  color: var(--link-color-hover);
+  font-weight: bold;
+}
 
+/* Menu Oculto*/
 #menuOculto {
   position: fixed;
   top: 0;
@@ -119,11 +125,14 @@ a:hover{
   height: 100vh;
   transition: right 0.3s ease-in-out;
   transition: ease-in-out 0.3s;
+  z-index: 2;
 }
 #menuOculto.active {
   right: 0px; /* Mostra o menu quando a classe 'active' é adicionada */
   transition: ease-in-out 0.3s;
-  background-color: var(--color-backgroundMenu-hover);
+  background: var(--color-backgroundMenu-hover);
+  z-index: 4;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
 }
 #menuOculto.active p{
   margin-right: 0px;
@@ -131,7 +140,9 @@ a:hover{
   font-weight: bold;
   color: var(--color-p-menu-hover);
 }
-
+#menuOculto.active li a{
+  visibility: visible;
+}
 #menu {
   margin-top: 35px; /* Espaço para a alça do menu */
   padding: 0;
@@ -144,6 +155,7 @@ a:hover{
   transition: ease-in-out 0.3s;
   font-family: "Euclid Circular A", sans-serif;
   user-select: none;
+  visibility: visible;
 }
 
 #menu li {
@@ -156,6 +168,7 @@ a:hover{
   text-decoration: none;
   border: none;
   transition: ease-in-out 0.1s;
+  visibility: hidden;
 }
 
 #menu li a:hover{
@@ -167,7 +180,7 @@ a:hover{
 
 
 
-
+/* Content Title */
 #textoSimples{
     font-size: 1.2em;
     margin-left: 30px;
@@ -177,38 +190,57 @@ a:hover{
   font-size: 2.4em;
   max-width: 80vw;
   font-family: "Calisto-MT";
+  margin-bottom: -10px;
+  color: var(--txth2-color);
 }
 
-
+/* Content */
 #textoSimplesParagrafos{
   max-width: 50vh; /* Define a altura máxima como metade da altura da janela do navegador */
+  margin-top: -10px;
 }
 
-#beneficios{
-  background-color: #a3a3a3;
-  margin-right: 30px;
-  border-radius: 5%;
-  max-width: 50vw;
-  text-align: center;
-  margin: auto;
-}
-#beneficios h3{
-  font-family: "Calisto-MT";
+#h3{
   font-size: 2.5em;
-}
-#beneficios h4{
-  margin-bottom: -20px;
-  font-size: 1.2em;
-}
-#beneficios p{
-  font-size: 1.2em;
+  text-align: center;
+  color: var(--color-h3);
 }
 
 
+/* Cards*/
+#container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+#container .card{
+  position: relative;
+  width: 90vw;
+  height: 400px;
+  margin: 30px;
+  border-radius: 15px;
+  background-color: var(--background-card);
+  border: 1px solid rgba(150, 150, 150, 0.2);
+  box-shadow: var(--shadow-card);
+}
+#container .card .content{
+  text-align: center;
+}
+#container .card .content h4{
+  font-size: 40px;
+  text-shadow: var(--text-shadow-h4);
+  /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.5);*/
+  color: var(--color-h4);
+}
 
 
 
 
+
+/*Animacao lampada*/
 #icon{
     cursor: pointer;
     margin-right: 8px;
@@ -261,7 +293,7 @@ a:hover{
 
 
 
-
+/* animacao inicializacao*/
   .animacaoInit{
     display: flex;
     flex-direction: column;
@@ -279,7 +311,7 @@ a:hover{
   #meuElemento:hover{
     color: var(--hover-title); 
   }
-
+ /*animacao movimento letra*/
   @keyframes shrink {
     0% {
       font-size: 120px;
@@ -299,7 +331,6 @@ a:hover{
       font-size: 120px;
       opacity: 1;
       margin-top: 0px;
-      color: #333333;
     }
     100% {
       font-size: 60px;
@@ -310,23 +341,24 @@ a:hover{
  .bodyAnima{
     animation: bodyanima 2.3s forwards;
  }
+ /*animacao cor tela*/
  @keyframes bodyanima {
-    0% {
-        background-color:#212529;
-        color: #ffffff;
-      }
-      50% {
-        background-color: #212529;
-        color: #ffffff;
-      }
-  
-      75% {
-        
-      }
-      100% {
-        
-      }
- }
+  0% {
+      background: #00011e;
+      color: white;
+  }
+  50% {
+      background: #000120;
+      color: white;
+  }
+  75% {
+      background: #ebebeb;
+      color: black;
+  }
+  100% {
+      
+  }
+}
  
  .hide {
   opacity: 1;
@@ -343,6 +375,42 @@ body.js-enabled .hide {
 
 
 
+footer{
+  background-color: rgb(20,28,36);
+  height: 70px;
+  width: auto;
+}
+#foot{
+max-width: 960px;
+margin: 0 auto;
+color:rgb(82,109,130)
+}
+#iconeFooter{
+list-style: none;
+position: absolute;
+right: 0;
+margin-right: 100px;
+}
+#iconeFooter li{
+display: inline-block;
+font-size: 1.5em;
+
+margin-right: 20px;
+}
+#iconeFooter li a{
+color: white;
+}
+#iconeFooter li a:hover{
+color:#003d5b;
+}
+#foot p{
+padding-top: 25px;
+}
+
+
+
+
+
 
 
 
@@ -354,46 +422,72 @@ body.js-enabled .hide {
 @media screen and (max-width: 600px) and (max-height: 950px){
 
 
+/*animacao initi*/
   #meuElemento{
-    animation: shrink 2.8s forwards;
+    animation: shrink 2.7s forwards;
+    transition: animation 2.7s ease-in-out;
   }
   @keyframes shrink {
     0% {
       font-size: 80px;
       opacity: 0;
+  
     }
     25% {
-      font-size: 80px;
-      opacity: 0;
+      opacity: 0,5;
+      font-size: 80px
     }
     50% {
-      font-size: 80px;
-      opacity: 0.5;
+      opacity: 1;
+      color:white
     }
 
     75% {
-      font-size: 80px;
       opacity: 1;
-      margin-top: 0px;
+      color:black;
     }
     100% {
-      font-size: 45px;
+      font-size: 30px;
       opacity: 1;
       margin-top: -320px;
     }
   }
-  #textoSimples{
-    margin: auto;
-    text-align: center;
-    margin-top: 170px;
-    
+  #menu li a{
+    font-size: 1.3em;
   }
 
-#ulCheckbox{
-  margin-top: 120px;
+  #ulCheckbox{
+    margin-top:  0px;
+    margin-left: -10px;
+  }
+#ulCheckbox li{
+  margin-right: 0;
 }
-#ulCheckbox li {
-  display: block;
+#ulCheckbox li:nth-child(3){
+  margin-left: 40px;
 }
 
+
+
+  #textoSimples{
+    margin: 0;
+    padding: 0;
+  }
+  #textoSimples h2{
+    text-align: center;
+    position: relative;
+    margin:auto;
+    font-size: 1.4em;
+  }
+
+
+
 }
+
+
+
+
+
+
+
+
