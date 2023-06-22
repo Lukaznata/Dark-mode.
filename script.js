@@ -13,42 +13,6 @@ $labeldarkmode.addEventListener('keypress', function(event) {
   }
 });
 
-
-
-
-const $elemento = document.querySelector('#meuElemento');
-const $conteudoOriginal = $elemento.innerHTML;
-
-const $botao = document.querySelector('#trocarBotao');
-const $conteudoOriginalBt = $botao.innerHTML;
-
-const $textoSimples = document.querySelector("#textoSimples");
-const $textoSimplesOri = $textoSimples.innerHTML;
-
-const $labeldarkmodeOri = $labeldarkmode.innerHTML;
-
-function alterarConteudo(elemento, conteudo) {
-  elemento.innerHTML = conteudo;
-}
-//alterar linguagem via click no botao
-$botao.addEventListener('click', function() {
-  if ($elemento.innerHTML === $conteudoOriginal && $botao.innerHTML === $conteudoOriginalBt && $textoSimples.innerHTML === $textoSimplesOri) {
-    alterarConteudo($elemento, 'Dark Mode');
-    alterarConteudo($botao, 'Traduzir');
-    alterarConteudo($textoSimples, 'this is a '+' <a href="https://www.google.com/search?q=dark-mode&rlz=1C1GCEU_pt-BRBR1044BR1044&oq=dark-mode&aqs=chrome..69i57j0i19i512l4j69i60j69i61l2.3712j0j7&sourceid=chrome&ie=UTF-8">dark-mode</a>' + ' test');
-    alterarConteudo($labeldarkmode, 'Dark-mode');
-  } else {
-    alterarConteudo($elemento, $conteudoOriginal);
-    alterarConteudo($botao, $conteudoOriginalBt);
-    alterarConteudo($textoSimples, $textoSimplesOri);
-    alterarConteudo($labeldarkmode, $labeldarkmodeOri);
-  }
-});
-
-
-
-
-
 var $icon = document.getElementById('icon');
 var $labelDarkMode = document.getElementById('labelDarkMode')
 // Remova a classe 'beat-fade' após a duração da animação clicando na lampada
@@ -103,6 +67,7 @@ var $menuOculto = document.getElementById('menuOculto');
 var $menuItens = document.querySelectorAll('#menu li a');
 var removeActiveTimeout;
 
+
 //adiciona a classe ao menu, o fazendo aparecer
 $menuOculto.addEventListener('mouseenter', function() {
   $menuOculto.classList.add('active');
@@ -113,8 +78,21 @@ $menuOculto.addEventListener('mouseleave', function() {
     $menuOculto.classList.remove('active');
   }, 0);
 });
+$menuItens.forEach(function(item) {
+  item.addEventListener('click', function() {
+    $menuOculto.classList.remove('active');
+  });
+});
 
-//passa item por item que estão com focus do menu, se tiverem. eles adicionam a classe de aparecer ao menu
+
+
+
+
+
+
+
+
+//passa item por item que estão com focus do menu, se tiverem, eles adicionam a classe de aparecer ao menu
 $menuItens.forEach(function(item) {
   item.addEventListener('focus', function() {
     $menuOculto.classList.add('active');
@@ -128,4 +106,82 @@ $menuItens.forEach(function(item) {
   });
 });
 
-  
+
+
+
+//efeito objeto 3D
+VanillaTilt.init(document.querySelectorAll(".card"), {
+  max: 3,
+  speed: 400,
+  glare: true,
+  "max-glare": 0.2,
+});
+
+
+
+//Jquery
+
+$(function() {
+  //translate to english 
+  // Evento de clique para o botão "Icone Estados Unidos"
+  $("#trocarBotao1").click(function(){
+
+    $("#meuElemento").text("Dark mode");
+    $("#labelDarkMode").text("Dark-mode");
+    // Menu
+    $("#menuOculto ul p").text("Menu");
+    $("#menuOculto ul li:nth-child(2) a").text("Start");
+    $("#menuOculto ul li:nth-child(3) a").text("Battery");
+    $("#menuOculto ul li:nth-child(4) a").text("Health");
+    $("#menuOculto ul li:nth-child(5) a").text("Return to portfolio");
+    //content
+    $("#textoSimples h2").text('Night mode, also known as "dark-mode", is a new technology that has become a trend in applications and operating systems from Google and Apple.')
+    $("#textoSimplesParagrafos p:nth-child(1)").text("Available on some services for Android and iPhone (iOS) devices, the function seeks to reduce the impact of lighting on the device's graphical interface and temporarily change the colors on the screen.e.");
+    $("#textoSimplesParagrafos p:nth-child(2)").text("The software starts to run in dark tones, in order to offer a more comfortable use to the user, mainly in dimly lit environments.");
+    //content-card 1
+    $("#h3").text("BENEFITS");
+    $("#bateria h4").text("BATTERY");
+    $("#bateria p:nth-child(2)").text("A study by “AppleInsider” concludes that using this method significantly reduces power consumption in OLED displays. It is even possible to save “up to 60% of the battery level” in three hours of intensive use on an iPhone X.");
+    $("#bateria p:nth-child(3)").text("Google also confirms this performance improvement on Android devices that regularly use this alternative. According to an article by “Slash Gear”, “the famous dark mode can make a big difference in the amount of power needed by all applications on Android”.");
+    //conteudo-card 2
+    $("#saude h4").text("HEALTH");
+    $("#saude p:nth-child(2)").text("“The warm colors of the night mode do not confuse the body in terms of chronological time and make it easier to fall asleep than if we were looking at a device with the screen in normal mode”, concludes the doctor.");
+    $("#saude p:nth-child(3)").text('A report from the American Academy of Ophthalmology (AAO) highlights the reduction in blue light emissions that accompanies dark mode. "While it does not damage eyesight, decreasing exposure to blue light and limiting screen time and brightness can help people sleep better and feel more comfortable".');
+    $("#foot p").text("&copy 2023 - Lucas Developer - dark mode")
+  });
+
+  // traduzir para Português
+  // Evento de clique para o botão "Icone Brasil"
+  $("#trocarBotao2").click(function(){
+
+    $("#meuElemento").text("Modo Escuro");
+    $("#labelDarkMode").text("Modo-escuro");
+    // Menu
+    $("#menuOculto ul p").text("Menu");
+    $("#menuOculto ul li:nth-child(2) a").text("Início");
+    $("#menuOculto ul li:nth-child(3) a").text("Bateria");
+    $("#menuOculto ul li:nth-child(4) a").text("Saúde");
+    $("#menuOculto ul li:nth-child(5) a").text("Retornar ao portifólio");
+    //conteudo  
+    $("#textoSimples h2").text('O modo noturno, também conhecido como "dark-mode", é uma nova tecnologia que se tornou tendência em aplicativos e sistemas operacionais do Google e da Apple.');
+    $("#textoSimplesParagrafos p:nth-child(1)").text("Disponível em alguns serviços para dispositivos Android e iPhone (iOS), a função busca reduzir o impacto da iluminação da interface gráfica de aparelhos e altera, de forma temporária, as cores na tela.");
+    $("#textoSimplesParagrafos p:nth-child(2)").text("Os softwares passam a ser executados em tons escuros, a fim de oferecer um uso mais confortável ao usuário, principalmente, em ambientes pouco iluminados.");
+    //conteudo-card 1
+    $("#h3").text("BENEFÍCIOS");
+    $("#bateria h4").text("BATERIA");
+    $("#bateria p:nth-child(2)").text("Um estudo da “AppleInsider” conclui que a utilização deste método reduz significativamente o consumo de energia nos visores OLED. Inclusive, é possível poupar “até 60% do nível de bateria” em três horas de utilização intensiva num iPhone X.");
+    $("#bateria p:nth-child(3)").text("A Google também confirma esta melhoria de desempenho nos dispositivos Android que utilizam regularmente esta alternativa. De acordo com um artigo do “Slash Gear”, “o famoso modo escuro pode fazer uma grande diferença na quantidade de energia necessária para todas as aplicações no Android”.");
+    //conteudo-card 2
+    $("#saude h4").text("SAÚDE");
+    $("#saude p:nth-child(2)").text("“As cores quentes do modo noturno não confundem o organismo em termos de tempo cronológico e tornam mais fácil adormecer do que se estivéssemos a olhar para um dispositivo com o ecrã no modo normal”, conclui o médico.");
+    $("#saude p:nth-child(2)").text("Um relatório da Academia Americana de Oftalmologia (AAO) destaca a redução das emissões de luz azul que acompanha o modo escuro. “Apesar de não causar danos à visão, a diminuição da exposição à luz azul e a limitação do tempo e do brilho do ecrã pode ajudar as pessoas a dormirem melhor e a sentirem-se mais confortáveis”.");
+    //footer
+    $("#foot p").text("&copy 2023 - Desenvolvedor Lucas - dark mode")
+  });
+});
+
+
+
+
+
+
