@@ -147,7 +147,7 @@ $(function() {
     $("#menuOculto ul li:nth-child(5) a").text("Return to portfolio");
     //content
     $("#textoSimples h2").text('Night mode, also known as "dark-mode", is a new technology that has become a trend in applications and operating systems from Google and Apple.')
-    $("#textoSimplesParagrafos p:nth-child(1)").text("Available on some services for Android and iPhone (iOS) devices, the function seeks to reduce the impact of lighting on the device's graphical interface and temporarily change the colors on the screen");
+    $("#textoSimplesParagrafos p:nth-child(1)").text("Available on some services for Android and iPhone (iOS) devices, the function seeks to reduce the impact of lighting on the device's graphical interface and temporarily change the colors on the screen.");
     $("#textoSimplesParagrafos p:nth-child(2)").text("The softwares start to run in dark tones, in order to offer a more comfortable use to the user, mainly in dimly lit environments.");
     //content-card 1
     $("#h3").text("BENEFITS");
@@ -190,6 +190,7 @@ $(function() {
     $("#foot p").text("&copy 2023 - Desenvolvedor Lucas - dark mode")
   });
 });
+
 
 
 
