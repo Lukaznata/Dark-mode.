@@ -409,7 +409,10 @@ color:#003d5b;
 #foot p{
 padding-top: 25px;
 }
-
+#footer{
+  position: relative;
+  z-index: 5;
+}
 
 
 
@@ -509,11 +512,14 @@ padding-top: 25px;
   #foot ul{
     margin: 0;
     padding: 0;
+    left:0;
+    margin-left: 10px;
   }
   #foot ul li{
     margin-top: 20px;
-    margin-right: 20px;
-    
+  }
+  #foot p{
+    margin-left: 100px;
   }
 }
 
