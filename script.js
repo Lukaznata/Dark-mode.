@@ -44,6 +44,7 @@ $elementoAnima.addEventListener('animationend', function() {
 
 
 
+
 //adiciona uma classe ao html para fazer funcionar caso esteja sem javascript
 document.body.classList.add('js-enabled');
 
@@ -87,11 +88,6 @@ $menuItens.forEach(function(item) {
 
 
 
-
-
-
-
-
 //passa item por item que estão com focus do menu, se tiverem, eles adicionam a classe de aparecer ao menu
 $menuItens.forEach(function(item) {
   item.addEventListener('focus', function() {
@@ -105,6 +101,13 @@ $menuItens.forEach(function(item) {
     }, 0);
   });
 });
+
+
+
+
+
+
+
 
 
 
@@ -136,12 +139,12 @@ $(function() {
     $("#menuOculto ul li:nth-child(5) a").text("Return to portfolio");
     //content
     $("#textoSimples h2").text('Night mode, also known as "dark-mode", is a new technology that has become a trend in applications and operating systems from Google and Apple.')
-    $("#textoSimplesParagrafos p:nth-child(1)").text("Available on some services for Android and iPhone (iOS) devices, the function seeks to reduce the impact of lighting on the device's graphical interface and temporarily change the colors on the screen.e.");
-    $("#textoSimplesParagrafos p:nth-child(2)").text("The software starts to run in dark tones, in order to offer a more comfortable use to the user, mainly in dimly lit environments.");
+    $("#textoSimplesParagrafos p:nth-child(1)").text("Available on some services for Android and iPhone (iOS) devices, the function seeks to reduce the impact of lighting on the device's graphical interface and temporarily change the colors on the screen");
+    $("#textoSimplesParagrafos p:nth-child(2)").text("The softwares start to run in dark tones, in order to offer a more comfortable use to the user, mainly in dimly lit environments.");
     //content-card 1
     $("#h3").text("BENEFITS");
     $("#bateria h4").text("BATTERY");
-    $("#bateria p:nth-child(2)").text("A study by “AppleInsider” concludes that using this method significantly reduces power consumption in OLED displays. It is even possible to save “up to 60% of the battery level” in three hours of intensive use on an iPhone X.");
+    $("#bateria p:nth-child(2)").text("A study by “AppleInsider” concludes which using this method significantly reduces power consumption in OLED displays. It is even possible to save “up to 60% of the battery level” in three hours of intensive use on an iPhone X.");
     $("#bateria p:nth-child(3)").text("Google also confirms this performance improvement on Android devices that regularly use this alternative. According to an article by “Slash Gear”, “the famous dark mode can make a big difference in the amount of power needed by all applications on Android”.");
     //conteudo-card 2
     $("#saude h4").text("HEALTH");
@@ -174,7 +177,7 @@ $(function() {
     //conteudo-card 2
     $("#saude h4").text("SAÚDE");
     $("#saude p:nth-child(2)").text("“As cores quentes do modo noturno não confundem o organismo em termos de tempo cronológico e tornam mais fácil adormecer do que se estivéssemos a olhar para um dispositivo com o ecrã no modo normal”, conclui o médico.");
-    $("#saude p:nth-child(2)").text("Um relatório da Academia Americana de Oftalmologia (AAO) destaca a redução das emissões de luz azul que acompanha o modo escuro. “Apesar de não causar danos à visão, a diminuição da exposição à luz azul e a limitação do tempo e do brilho do ecrã pode ajudar as pessoas a dormirem melhor e a sentirem-se mais confortáveis”.");
+    $("#saude p:nth-child(3)").text("Um relatório da Academia Americana de Oftalmologia (AAO) destaca a redução das emissões de luz azul que acompanha o modo escuro. “Apesar de não causar danos à visão, a diminuição da exposição à luz azul e a limitação do tempo e do brilho do ecrã pode ajudar as pessoas a dormirem melhor e a sentirem-se mais confortáveis”.");
     //footer
     $("#foot p").text("&copy 2023 - Desenvolvedor Lucas - dark mode")
   });
