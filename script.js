@@ -78,12 +78,20 @@ $menuOculto.addEventListener('mouseleave', function() {
   removeActiveTimeout = setTimeout(function() {
     $menuOculto.classList.remove('active');
   }, 0);
-});
+})
+//retira o menu ao clicar em um item 
 $menuItens.forEach(function(item) {
   item.addEventListener('click', function() {
     $menuOculto.classList.remove('active');
   });
 });
+
+var menuTitulo = document.querySelector('#menuOculto p');
+menuTitulo.addEventListener('click', function() {
+  $menuOculto.classList.toggle('active');
+});
+
+
 
 
 
